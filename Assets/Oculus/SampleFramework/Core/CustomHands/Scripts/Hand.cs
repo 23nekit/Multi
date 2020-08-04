@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using OVRTouchSample;
+using Photon.Pun;
 #if UNITY_EDITOR
 using UnityEngine.SceneManagement;
 #endif
@@ -68,8 +69,12 @@ namespace OVRTouchSample
             m_grabber = GetComponent<OVRGrabber>();
         }
 
+
+        private PhotonView HandView;
+
         private void Start()
         {
+            HandView = GetComponent<PhotonView>();
             m_showAfterInputFocusAcquired = new List<Renderer>();
 
             // Collision starts disabled. We'll enable it for certain cases such as making a fist.
@@ -94,9 +99,13 @@ namespace OVRTouchSample
             OVRManager.InputFocusAcquired -= OnInputFocusAcquired;
             OVRManager.InputFocusLost -= OnInputFocusLost;
         }
-
         private void Update()
         {
+            if (!HandView.IsMine)
+			{
+                return;
+			}
+
             UpdateCapTouchStates();
 
             m_pointBlend = InputValueRateChange(m_isPointing, m_pointBlend);
@@ -107,6 +116,7 @@ namespace OVRTouchSample
             bool collisionEnabled = m_grabber.grabbedObject == null && flex >= THRESH_COLLISION_FLEX;
             CollisionEnable(collisionEnabled);
 
+            UpdateAnimStates();
             UpdateAnimStates();
         }
 

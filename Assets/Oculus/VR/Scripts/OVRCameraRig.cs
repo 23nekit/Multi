@@ -18,11 +18,11 @@ permissions and limitations under the License.
 #define USING_XR_SDK
 #endif
 
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using Node = UnityEngine.XR.XRNode;
 
 /// <summary>
@@ -93,7 +93,6 @@ public class OVRCameraRig : MonoBehaviour
 	/// \note: The main camera of the game will be used to provide VR rendering. And the tracking space anchors will still be updated to provide reference poses.
 	/// </summary>
 	public bool disableEyeAnchorCameras = false;
-
 
 	protected bool _skipUpdate = false;
 	protected readonly string trackingSpaceName = "TrackingSpace";

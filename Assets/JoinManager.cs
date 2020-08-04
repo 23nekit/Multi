@@ -7,9 +7,11 @@ using UnityEngine.UI;
 
 public class JoinManager : MonoBehaviourPunCallbacks
 {
-    public InputField CreateRoomField;
-    public InputField JoinRoomField;
+    public InputField RoomField;
     public Text TextFieldForFails;
+    public GameObject KeyboardWithRoomField;
+
+    private int ChoosedConfiguration;
 
     void Start()
     {
@@ -21,15 +23,28 @@ public class JoinManager : MonoBehaviourPunCallbacks
 
     public void CreateRoom() 
     {
-        PhotonNetwork.CreateRoom("k",new Photon.Realtime.RoomOptions { MaxPlayers=2});
+        KeyboardWithRoomField.SetActive(true);
+        ChoosedConfiguration = 1;
     }
 
     public void LoadRoom() 
     {
-        PhotonNetwork.JoinRandomRoom();
+        KeyboardWithRoomField.SetActive(true);
+        ChoosedConfiguration = 2;
     }
 
-    public override void OnJoinedRoom()
+	public void Enter()
+	{
+		if (ChoosedConfiguration == 1)
+        {
+            PhotonNetwork.CreateRoom(RoomField.text, new Photon.Realtime.RoomOptions { MaxPlayers = 2 });
+        }
+        else if (ChoosedConfiguration == 2) 
+        {
+            PhotonNetwork.JoinRoom(RoomField.text);
+        }
+	}
+	public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel("Game");
     }

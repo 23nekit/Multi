@@ -441,7 +441,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8435173416170157115}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
@@ -486,12 +486,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8435173416170186781}
-  - component: {fileID: 8435173416160428499}
   - component: {fileID: 8435173416160428505}
   - component: {fileID: 8401871185085634205}
   - component: {fileID: -6426427979721809892}
   - component: {fileID: -1289151073340833100}
   - component: {fileID: -4390521909021015425}
+  - component: {fileID: -2238141239473963156}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -515,21 +515,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8435173416160428499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8435173416170157117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usePerEyeCameras: 0
-  useFixedUpdateForTracking: 0
-  disableEyeAnchorCameras: 1
 --- !u!114 &8435173416160428505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,7 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1353e4faccd869b4bb2c570a0e0341a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 8435173416160428499}
+  MainCamera: {fileID: -2238141239473963156}
 --- !u!114 &-1289151073340833100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,6 +641,21 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!114 &-2238141239473963156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8435173416170157117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usePerEyeCameras: 0
+  useFixedUpdateForTracking: 0
+  disableEyeAnchorCameras: 0
 --- !u!1 &8435173416170157119
 GameObject:
   m_ObjectHideFlags: 0

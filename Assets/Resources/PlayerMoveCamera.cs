@@ -4,12 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveCamera : MonoBehaviour
+public class PlayerMoveCamera : MonoBehaviour /*:OVRCameraRig*/
 {
 	public OVRCameraRig MainCamera;
 
     private PhotonView MyPhotonView;
-
 
 	private void Start()
 	{
@@ -31,4 +30,11 @@ public class PlayerMoveCamera : MonoBehaviour
 			
 		}
     }
+	//protected override void UpdateAnchors(bool updateEyeAnchors, bool updateHandAnchors)
+	//{
+	//	if (MyPhotonView.IsMine)
+	//	{
+	//		base.UpdateAnchors(updateEyeAnchors, updateHandAnchors);
+	//	}
+	//}
 }
